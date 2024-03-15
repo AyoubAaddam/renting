@@ -9,4 +9,20 @@ class Suscripcion extends Model
 {
     use HasFactory;
     protected $fillable = ['subscripcion'];
+
+   
+
+
+public function coche()
+{
+    return $this->belongsTo(Coche::class);
+}
+
+public function cliente()
+{
+    return $this->belongsTo(Cliente::class, 'user_id');
+}
+
+
+
 }

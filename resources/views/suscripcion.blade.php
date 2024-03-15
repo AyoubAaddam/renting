@@ -7,7 +7,7 @@
 
     @section('content')
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-semibold mb-8 text-center">Coches Selecionado</h1>
+        <h1 class="text-3xl font-semibold mb-8 text-center">Coche Seleccionado</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             <div class="rounded-lg shadow-md hover:bg-gray-100">
                 <div class="p-4">
@@ -26,15 +26,36 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="POST" action="{{ route('create.suscripcion') }}">
                         @csrf
+                        <!-- Campos de coche -->
                         <input type="hidden" name="coche_id" value="{{ $coches->id }}">
+
+                        <!-- Campos de cliente -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                                <input id="nombre" name="nombre" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                            </div>
+                            <div>
+                                <label for="apellido" class="block text-sm font-medium text-gray-700">Apellido</label>
+                                <input id="apellido" name="apellido" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                            </div>
+                            <div>
+                                <label for="dni" class="block text-sm font-medium text-gray-700">DNI</label>
+                                <input id="dni" name="dni" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                            </div>
+                            <div>
+                                <label for="isbn" class="block text-sm font-medium text-gray-700">ISBN</label>
+                                <input id="isbn" name="isbn" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                            </div>
+                        </div>
 
                         <!-- Campo de suscripción -->
                         <div class="mt-4">
                             <label for="subscripcion" class="block text-sm font-medium text-gray-700">{{ __('Tipo de Suscripción') }}</label>
                             <select id="subscripcion" name="subscripcion" class="block mt-1 w-full form-select" required autofocus>
-                                <option value="Largo plazo">Largo plazo ( 2 - 5 años)</option>
-                                <option value="Medio plazo">Medio plazo ( 1 - 2 años)</option>
-                                <option value="Corto Plazo">Corto Plazo  (menos de un año)</option>
+                                <option value="Largo plazo">Largo plazo (2 - 5 años)</option>
+                                <option value="Medio plazo">Medio plazo (1 - 2 años)</option>
+                                <option value="Corto Plazo">Corto Plazo (menos de un año)</option>
                             </select>
                         </div>
 
